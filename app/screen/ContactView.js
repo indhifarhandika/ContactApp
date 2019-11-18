@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, FlatList, StyleSheet, ImageBackground } from 'react-native'
+import { FlatList, StyleSheet, ImageBackground } from 'react-native'
 import { useSelector, useDispatch } from 'react-redux'
 
 import MyCart from '../component/MyCard'

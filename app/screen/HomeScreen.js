@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { View, Text, TouchableOpacity, TextInput, StyleSheet, ImageBackground ,Image} from 'react-native'
-import { useSelector, useDispatch, useStore } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import { addContact } from '../store/actions/contactActions'
 

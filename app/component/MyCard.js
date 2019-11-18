@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card, CardItem, Text, Icon, Right } from 'native-base'
+import { CardItem, Text, Icon, Right } from 'native-base'
 import { TouchableOpacity, Alert } from 'react-native'
 import { useSelector, useDispatch } from 'react-redux'
 
