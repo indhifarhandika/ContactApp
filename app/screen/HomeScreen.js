@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, TouchableOpacity, TextInput, StyleSheet, ImageBackground ,Image} from 'react-native'
+import { View, Text, TouchableOpacity, TextInput, StyleSheet, ImageBackground ,Image, Platform, Keyboard, KeyboardAvoidingView} from 'react-native'
 import { useDispatch } from 'react-redux'
 
 import { addContact } from '../store/actions/contactActions'
@@ -36,7 +36,7 @@ const HomeScreen = props => {
             </View>
             <View style={styles.button}>
                 <TouchableOpacity
-                    style={{marginRight: 30, borderWidth: 1, borderColor: 'white', borderRadius: 10, width: 70, alignItems: 'center'}}
+                    style={{marginLeft: 20, borderWidth: 1, borderColor: 'white', borderRadius: 10, width: 70, alignItems: 'center'}}
                     onPress={() => (
                         dispatch(
                             addContact(
@@ -46,6 +46,7 @@ const HomeScreen = props => {
                                 }
                             )
                         ),
+                        Keyboard.dismiss(),
                         alert('Contact berhasil ditambahkan'),
                         setName(''),
                         setPhone('')
@@ -54,11 +55,16 @@ const HomeScreen = props => {
                     <Text style={{fontSize: 16, color: 'white'}}>Save</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    style={{ borderWidth: 1, borderColor: 'white', borderRadius: 10, width: 130, alignItems: 'center' }}
+                    style={{ marginHorizontal: 10, borderWidth: 1, borderColor: 'white', borderRadius: 10, width: 130, alignItems: 'center' }}
                     onPress={() => props.navigation.navigate('ContactList')}
-                    title='Contact List'
                 >
                     <Text style={{fontSize: 16, color: 'white'}}>Contact List</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={{ borderWidth: 1, borderColor: 'white', borderRadius: 10, width: 130, alignItems: 'center' }}
+                    onPress={() => props.navigation.navigate('ApiGithub')}
+                >
+                    <Text style={{fontSize: 16, color: 'white'}}>API Github</Text>
                 </TouchableOpacity>
             </View>
         </ImageBackground>

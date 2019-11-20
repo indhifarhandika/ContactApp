@@ -23,10 +23,6 @@ const ContactView = props => {
 
 ContactView.navigationOptions = {
     title: "Contact List",
-    headerTitleStyle: {
-      marginLeft: 100
-    },
-    transparent: true
 }
 
 const styles = StyleSheet.create({
