@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, TouchableOpacity, TextInput, StyleSheet, ImageBackground ,Image, Platform, Keyboard, KeyboardAvoidingView} from 'react-native'
+import { AsyncStorage, View, Text, TouchableOpacity, TextInput, StyleSheet, ImageBackground ,Image, Platform, Keyboard, KeyboardAvoidingView} from 'react-native'
 import { useDispatch } from 'react-redux'
 
 import { addContact } from '../store/actions/contactActions'
@@ -7,7 +7,9 @@ import { addContact } from '../store/actions/contactActions'
 const HomeScreen = props => {
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
-
+    const [nm, setNm] = useState('')
+    AsyncStorage.getItem('nama').then(data => setNm(data))
+    console.log(nm)
     const dispatch = useDispatch()
 
     return (
@@ -15,6 +17,7 @@ const HomeScreen = props => {
             <View>
                 <Image source={require('../../assets/react.png')} style={{width: 90, height: 90, marginBottom: 50, marginTop: 140}} />
             </View>
+            <Text style={{color: 'white'}}>{nm}</Text>
             <View style={styles.input}>
                 <TextInput
                     style={{color: 'white'}}
@@ -67,6 +70,12 @@ const HomeScreen = props => {
                     <Text style={{fontSize: 16, color: 'white'}}>API Github</Text>
                 </TouchableOpacity>
             </View>
+            <TouchableOpacity
+                style={{ borderWidth: 1, borderColor: 'white', borderRadius: 10, width: 130, alignItems: 'center' }}
+                onPress={() => props.navigation.navigate('AsyncScreen')}
+            >
+                <Text style={{fontSize: 16, color: 'white'}}>Async Storage</Text>
+            </TouchableOpacity>
         </ImageBackground>
     )
 }
